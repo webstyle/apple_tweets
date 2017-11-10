@@ -9,7 +9,7 @@ const T = new Twit({
   timeout_ms: 60 * 20000
 });
 
-const appleStream = T.stream('statuses/filter', {track: '#apple', language: 'en'});
+const appleStream = T.stream('statuses/filter', {track: ['#apple', '#Apple', '#MacBook'], language: 'en'});
 
 appleStream.on('tweet', function (tweet) {
   sendToChannel(tweet.text);
@@ -26,7 +26,7 @@ function sendToChannel(text) {
 }
 
 function log(text) {
-  console.log("=====================");
+  console.log("====================================");
   console.log(text);
-  console.log("=====================");
+  console.log("====================================");
 }
