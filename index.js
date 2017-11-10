@@ -6,13 +6,14 @@ const T = new Twit({
   consumer_secret: process.env.CONSUMER_SECRET,
   access_token: process.env.ACCESS_TOKEN,
   access_token_secret: process.env.ACCESS_TOKEN_SECRET,
-  timeout_ms: 60 * 20000  
+  timeout_ms: 60 * 20000
 });
 
 const appleStream = T.stream('statuses/filter', {track: '#apple', language: 'en'});
 
 appleStream.on('tweet', function (tweet) {
   sendToChannel(tweet.text);
+  log(tweet.text);
 });
 
 function sendToChannel(text) {
@@ -22,4 +23,10 @@ function sendToChannel(text) {
       "text": text
     }
   });
+}
+
+function log(text) {
+  console.log("=====================");
+  console.log(text);
+  console.log("=====================");
 }
