@@ -2,7 +2,6 @@ const Twit = require('twit');
 const request = require('request');
 const http = require('http');
 
-
 const server = http.createServer((req, res) => {
   res.end(`OK. uptime: ${new Date()}`);
 });
