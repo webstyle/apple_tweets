@@ -4,7 +4,7 @@ const http = require('http');
 
 
 const server = http.createServer((req, res) => {
-  res.end('OK');
+  res.end(`OK. uptime: ${new Date()}`);
 });
 
 server.listen(process.env.PORT || 5000);
