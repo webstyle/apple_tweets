@@ -1,5 +1,13 @@
 const Twit = require('twit');
 const request = require('request');
+const http = require('http');
+
+
+const server = http.createServer((req, res) => {
+  res.end('OK');
+});
+
+server.listen(process.env.PORT || 5000);
 
 const T = new Twit({
   consumer_key: process.env.CONSUMER_KEY,
