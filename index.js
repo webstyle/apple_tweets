@@ -16,7 +16,7 @@ const T = new Twit({
   timeout_ms: 60 * 1000
 });
 
-const appleStream = T.stream('statuses/filter', {track: ['#apple', '#Apple', '#MacBook'], language: 'en'});
+const appleStream = T.stream('statuses/filter', {track: ['#apple', '#Apple', '#MacBook'], language: 'ru'});
 
 appleStream.on('tweet', function (tweet) {
   sendToChannel(tweet.text);
